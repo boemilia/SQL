@@ -1,0 +1,34 @@
+--1-- select product_name, product_id from products where unit_price>100
+-- select * from products where unit_price >100
+--2-- select * from employees order by first_name
+-- select employees from employees
+-- ORDER BY employees.first_name ASC
+--3--select company_name, contact_name from customers order by company_name
+-- select customers.contact_name, customers.company_name, customer_id from customers
+-- order by customers.company_name ASC
+--4--select country kraj, count (*)ilosc from employees group by country  - mozna nazwac samemu inna nazwa niz włąsciwa
+-- select employees.first_name, employees.last_name, employees.country 
+-- from employees order by employees.country
+-- select employees.country, employees.first_name, employees.last_name 
+-- from employees group by employees.country
+--5--select order_id, order_details.quantity from order_details 
+--select order_id, count (*) from order_details group by order_id
+--6--
+-- select product_id, round(unit_price * quantity * (1-discount)) 
+-- from order_details
+-- order by 2  --(unit_price * quantity * (1-discount)) -- desc limit 10
+
+-- select product_id, unit_price from order_details
+-- order by 2 desc limit 10
+
+--select unit_price, order_id from order_details order by unit_price DESC
+
+--4.1--
+--1-- wyświetl z tabeli 10 wierszy od 2 wiersza w kolejnośi od najnowszej daty
+-- select * from orders order by order_date desc limit 10 offset 2;
+--2-- wyswietl wszystkie produkty dla ktorych istnieją zamówienia - za pomocą EXISTS lub IN
+-- select * from products where product_id in (select product_id from order_details);
+--3-- wyświetl kolumny category_name i company_name z tabeli suppliers i categories w jednej kolumnie, wszystkie wiersze. tip: UNION
+-- select category_name from categories
+-- union
+-- select company_name from suppliers;
